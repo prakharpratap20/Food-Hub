@@ -66,10 +66,12 @@ img {
 .section {
   display: flex;
   align-items: center;
+  margin-bottom: 3vw;
   .title {
     color: var(--text-color);
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 0.25em;
+    font-weight: 900;
   }
   .info {
     color: var(--text-light);
@@ -82,43 +84,65 @@ img {
     width: 50%;
   }
 }
-.section.hero {
-  .typography {
-    padding-right: 1em;
+@import "partials/hero-section";
+
+@import "partials/improved-section";
+
+@import "partials/quote-section";
+
+.section.chefs {
+  display: block;
+}
+
+.top-chefs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 1.5em;
+  margin-top: 3em;
+}
+
+.chef-card {
+  display: flex;
+  height: 120px;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  overflow: hidden;
+  img {
+    height: 100%;
+    width: 120px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px var(--shadow-color);
   }
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.75vw;
-    .custom-image {
-      border-radius: 3px;
-      overflow: hidden;
-      transform: scale(0);
-      opacity: 0;
-      animation: getAnimationDuration(0.5s) popOut forwards;
-      &:nth-child(2) {
-        animation-delay: 0.1s;
-      }
-      &:nth-child(3) {
-        animation-delay: 0.2s;
-      }
-      &:nth-child(6) {
-        animation-delay: 0.3s;
-      }
-      &:nth-child(9) {
-        animation-delay: 0.4s;
-      }
-      &:nth-child(8) {
-        animation-delay: 0.5s;
-      }
-      &:nth-child(7) {
-        animation-delay: 0.6s;
-      }
-      &:nth-child(4) {
-        animation-delay: 0.7s;
-      }
-      &:nth-child(5) {
-        animation-delay: 0.8s;
+  .chef-card-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    .chef-card-name {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+    .chef-recipe-count,
+    .chef-cuisine {
+      font-size: 1.2em;
+      color: var(--text-light);
+    }
+    .chef-icons {
+      font-size: 1.2em;
+      svg {
+        margin-right: 0.5em;
+        &:nth-child(1) {
+          color: #0063f7;
+        }
+        &:nth-child(2) {
+          color: #13b4ff;
+        }
+        &:nth-child(3) {
+          color: #ff0056;
+        }
       }
     }
   }
@@ -129,7 +153,7 @@ img {
 }
 
 .container {
-  padding-inline: 15vw;
+  padding-inline: 12vw;
 }
 
 @import "partials/animations";
@@ -142,5 +166,8 @@ img {
     .sidebar-btn {
       display: block;
     }
+  }
+  .chef-card {
+    box-shadow: 0 5px 10px var(--shadow-color);
   }
 }
