@@ -23,6 +23,7 @@ body {
   font-size: var(--font-size);
   font-family: "Roboto", sans-serif;
   padding-top: 55px;
+  background-color: var(--background-light);
 }
 
 a {
@@ -69,6 +70,9 @@ img {
   flex-wrap: wrap;
   align-items: center;
   margin-bottom: 3vw;
+  &.d-block {
+    display: block;
+  }
   .title {
     color: var(--text-color);
     font-size: 2.5em;
@@ -90,49 +94,57 @@ img {
 @import "partials/improved-section";
 @import "partials/quote-section";
 @import "partials/chef-section";
+@import "partials/previous-searches";
 
-.previous-searches {
-  display: block;
-  h2 {
-    color: var(--text-color);
-    margin-bottom: 0.5em;
-  }
-  .previous-searches-container {
-    .search-item {
-      background-color: var(--primary-color);
-      display: inline-block;
-      padding: 0.5em 1em;
-      margin: 0 1em 1em 0;
-      color: #fff;
-      border-radius: 30px;
-      box-shadow: 0 3px 6px var(--shadow-color);
-      transform: translateX(100%);
-      opacity: 0;
-      animation: getAnimationDuration(0.5s) slideInRight forwards;
-    }
-  }
-  .search-box {
+@import "partials/recipes-section";
+
+.options-container {
+  box-shadow: 0 5px 10px var(--shadow-color);
+  padding: 1em;
+  border-radius: 5px;
+  border-left: 0.5em solid var(--primary-color);
+  background-color: var(--background-light);
+  margin-top: 1em;
+  display: flex;
+  gap: 1em;
+  .option {
+    height: 3.5em;
+    width: 3.5em;
+    box-shadow: 0 3px 6px var(--shadow-color);
+    border-radius: 10px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    height: 35px;
-    justify-content: flex-end;
-    input,
-    .btn {
-      height: 30px;
+    &.light {
+      background-color: #fff;
     }
-    input {
-      min-width: 250px;
-      padding: 0 0.5px;
-      border-radius: 5px 0 0 5px;
-      outline: none;
-      border: 1px solid #4d4d4d;
+    &.dark {
+      background-color: rgb(29, 29, 29);
     }
-    .btn {
-      padding-block: 0;
-      padding-inline: 0.75em;
-      border-radius: 0 5px 5px 0;
+    .check {
+      height: 2.5em;
+      width: 2.5em;
+      background-color: var(--primary-color);
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px var(--shadow-color);
+      svg {
+        height: 1.5em;
+        width: 1.5em;
+      }
     }
   }
+  .btn span {
+    margin-left: 0.5em;
+    display: inline-blocks;
+  }
+}
+
+.d-block h2 {
+  font-size: 1.75em;
+  color: var(--text-color);
 }
 
 @import "partials/footer";

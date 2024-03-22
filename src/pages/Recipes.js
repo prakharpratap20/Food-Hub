@@ -1,40 +1,77 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import PreviousSearches from "../components/PreviousSearches";
+import RecipeCard from "../components/RecipeCard";
 
 export default function Recipes() {
-  const searches = [
-    "pizza",
-    "burger",
-    "cookies",
-    "juice",
-    "biryani",
-    "salad",
-    "ice cream",
-    "lasagna",
-    "pudding",
-    "soup",
-  ];
+  const recipes = [
+    {
+      title: "Chicken Pan Pizza",
+      image: "/img/gallery/img_1.jpg",
+      authorImg: "/img/top-chefs/img_1.jpg",
+    },
+    {
+      title: "Spaghetti and Meatballs",
+      image: "/img/gallery/img_4.jpg",
+      authorImg: "/img/top-chefs/img_2.jpg",
+    },
+    {
+      title: "American Cheese Burger",
+      image: "/img/gallery/img_5.jpg",
+      authorImg: "/img/top-chefs/img_3.jpg",
+    },
+    {
+      title: "Mutton Biriyani",
+      image: "/img/gallery/img_6.jpg",
+      authorImg: "/img/top-chefs/img_5.jpg",
+    },
+    {
+      title: "Japanese Sushi",
+      image: "/img/gallery/img_10.jpg",
+      authorImg: "/img/top-chefs/img_6.jpg",
+    },
+    {
+      title: "Chicken Pan Pizza",
+      image: "/img/gallery/img_1.jpg",
+      authorImg: "/img/top-chefs/img_1.jpg",
+    },
+    {
+      title: "Spaghetti and Meatballs",
+      image: "/img/gallery/img_4.jpg",
+      authorImg: "/img/top-chefs/img_2.jpg",
+    },
+    {
+      title: "American Cheese Burger",
+      image: "/img/gallery/img_5.jpg",
+      authorImg: "/img/top-chefs/img_3.jpg",
+    },
+    {
+      title: "Mutton Biriyani",
+      image: "/img/gallery/img_6.jpg",
+      authorImg: "/img/top-chefs/img_5.jpg",
+    },
+    {
+      title: "Japanese Sushi",
+      image: "/img/gallery/img_10.jpg",
+      authorImg: "/img/top-chefs/img_6.jpg",
+    },
+    {
+      title: "American Cheese Burger",
+      image: "/img/gallery/img_5.jpg",
+      authorImg: "/img/top-chefs/img_3.jpg",
+    },
+    {
+      title: "Mutton Biriyani",
+      image: "/img/gallery/img_6.jpg",
+      authorImg: "/img/top-chefs/img_5.jpg",
+    },
+  ].sort(() => Math.random() - 0.5);
+
   return (
     <div>
-      <div className="previous-searches section">
-        <h2>Previous Searches</h2>
-        <div className="previous-searches-container">
-          {searches.map((search, index) => (
-            <div
-              key={index}
-              style={{ animationDelay: index * 0.1 + "s" }}
-              className="search-item"
-            >
-              {search}
-            </div>
-          ))}
-        </div>
-        <div className="search-box">
-          <input type="text" placeholder="Search.." />
-          <button className="btn">
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
-        </div>
+      <PreviousSearches />
+      <div className="recipes-container">
+        {recipes.map((recipe, index) => (
+          <RecipeCard key={index} recipe={recipe} />
+        ))}
       </div>
     </div>
   );
