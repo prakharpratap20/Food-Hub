@@ -1,17 +1,19 @@
+import { useEffect, useState } from "react";
 import CustomImage from "./CustomImage";
 
 export default function HeroSection() {
-  const images = [
-    "/img/gallery/img_1.jpg",
-    "/img/gallery/img_2.jpg",
-    "/img/gallery/img_3.jpg",
-    "/img/gallery/img_4.jpg",
-    "/img/gallery/img_5.jpg",
-    "/img/gallery/img_6.jpg",
-    "/img/gallery/img_7.jpg",
-    "/img/gallery/img_8.jpg",
-    "/img/gallery/img_9.jpg",
-  ];
+  const [popular, setPopular] = useState([]);
+  useEffect(() => {
+    getPopular();
+  }, []);
+  const getPopular = async () => {
+    const api = await fetch(
+      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
+    );
+    const data = await api.json();
+    setPopular(data.recipes);
+  };
+
   return (
     <div className="section hero">
       <div className="col typography">
@@ -24,8 +26,8 @@ export default function HeroSection() {
         <button className="btn">Explore Now</button>
       </div>
       <div className="col gallery">
-        {images.map((src, index) => (
-          <CustomImage key={index} imgSrc={src} pt={"90%"} />
+        {popular.map((recipe, index) => (
+          <CustomImage key={index} imgSrc={recipe.image} pt={"90%"} />
         ))}
       </div>
     </div>
